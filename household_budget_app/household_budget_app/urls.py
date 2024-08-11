@@ -16,9 +16,10 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from budget import views  # budgetアプリからviewsをインポート
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('budget/', include('budget.urls')),
+    path('', views.add_expense, name='home'),  # ルートURLにパターンを追加
 ]
-
