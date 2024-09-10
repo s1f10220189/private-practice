@@ -3,19 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <title>削除確認</title>
-    <script>
-        function confirmDelete() {
-            return confirm('本当に削除してもよろしいですか？');
-        }
-    </script>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
 </head>
 <body>
     <h1>削除確認</h1>
-    <p>「{{ expense.name }}」を削除しますか？</p>
-    <form method="post" onsubmit="return confirmDelete();">
+    <p>本当に "{{ expense.name }}" を削除してもよろしいですか？</p>
+    <form method="post">
         {% csrf_token %}
         <button type="submit">削除</button>
-        <a href="{% url 'expense_list' %}">キャンセル</a>
+        <a href="{% url 'expense_list' %}"><button type="button">キャンセル</button></a>
     </form>
 </body>
 </html>
