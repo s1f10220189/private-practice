@@ -56,7 +56,7 @@ ROOT_URLCONF = 'household_budget_app.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, 'templates')],
+        'DIRS': [BASE_DIR / 'templates'],  # ここでtemplatesディレクトリを指定
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -68,7 +68,6 @@ TEMPLATES = [
         },
     },
 ]
-
 WSGI_APPLICATION = 'household_budget_app.wsgi.application'
 
 
@@ -123,3 +122,8 @@ STATIC_URL = '/static/'
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+LOGIN_REDIRECT_URL = 'expense_list'  # ログイン後に支出一覧にリダイレクト
+LOGOUT_REDIRECT_URL = 'login'  # ログアウト後にログイン画面にリダイレクト
+
+LOGIN_URL = 'login'  # ログインページのURLを設定

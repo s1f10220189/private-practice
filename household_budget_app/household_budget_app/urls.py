@@ -22,4 +22,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('budget/', include('budget.urls')),
     path('', views.add_expense, name='home'),  # ルートURLにパターンを追加
+    path('signup/', views.signup, name='signup'),
 ]
